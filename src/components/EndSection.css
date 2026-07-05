@@ -1,0 +1,46 @@
+.end-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(244, 201, 82, 0.25);
+  border-radius: 18px;
+  padding: 48px 60px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.end-message {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.end-message strong {
+  color: var(--color-text);
+}
+
+.end-copyright {
+  margin: 24px 0 0;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.end-cat-frame {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+
+.end-cat-gif {
+  display: block;
+  width: 240px;
+  height: auto;
+  border-radius: 14px;
+}

@@ -1,0 +1,10 @@
+.page-section {
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-title {
+  font-size: 30px;
+  color: #f4c952;
+  margin-bottom: 24px;
+}

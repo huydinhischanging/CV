@@ -1,0 +1,74 @@
+.experience-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 32px;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 28px;
+}
+
+/* Đường kẻ nối dọc chạy suốt timeline, đặt lùi vào để các dot nằm đè lên trên */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 5px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #f4c952;
+  box-shadow: 0 0 0 4px rgba(244, 201, 82, 0.18);
+}
+
+.timeline-item h3 {
+  margin: 0 0 4px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.timeline-item .period {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #f4526e;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    padding-left: 22px;
+  }
+
+  .timeline-dot {
+    left: -22px;
+  }
+}

@@ -1,0 +1,29 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar is position:fixed (see Sidebar.css) and always --sidebar-width
+   wide, so main-content just needs a matching left margin to avoid being
+   covered by it. */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--sidebar-width);
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    /* Sidebar.css shrinks to --sidebar-width-collapsed below this breakpoint. */
+    margin-left: var(--sidebar-width-collapsed);
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0 16px;
+  }
+}

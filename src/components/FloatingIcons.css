@@ -1,0 +1,83 @@
+.floating-icons {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  /* "Mắt người xem" cách mặt phẳng màn hình 1000px -> cho các con dùng
+     rotateX/rotateY/translateZ một cảm giác chiều sâu thật, không bị dẹt. */
+  perspective: 1000px;
+}
+
+/* Khối bọc toàn bộ icon, nhận góc xoay rotateX/rotateY theo chuột (set bằng
+   inline style trong FloatingIcons.jsx). preserve-3d bắt buộc phải có ở đây,
+   nếu không các icon con sẽ bị trình duyệt "ép phẳng" về 2D khi khối này xoay. */
+.icons-scene {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+}
+
+/* Lớp vị trí DÀN RỘNG của từng icon — dùng top/left (%) khai báo trong
+   data/portfolio.js, KHÔNG animate, nên vị trí luôn ổn định và trải khắp
+   khu vực Hero (góc trên/dưới/trái/phải) thay vì dồn vào giữa. */
+.icon-position {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+/* Lớp độ sâu (translateZ) riêng, tách khỏi .icon-position để không phải đổi
+   top/left mỗi khi tính lại độ sâu, và tách khỏi các animation bên trong. */
+.icon-depth {
+  transform-style: preserve-3d;
+}
+
+.floating-icon {
+  display: inline-block;
+  animation-name: float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0.9;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
+  /* Icon sizes come from inline font-size (px) via data/portfolio.js; on
+     very narrow viewports those fixed pixel sizes can push an icon past
+     the edge of the screen and cause horizontal overflow, so cap it
+     relative to the viewport as a safety net. */
+  max-width: 10vw;
+}
+
+@media (max-width: 480px) {
+  .floating-icon {
+    font-size: clamp(18px, 6vw, 28px) !important;
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-18px);
+  }
+}
+
+/* span trong cùng, tự xoay 3D liên tục (rotateX + rotateY cùng lúc) để icon
+   trông như một khối vật thể tự lăn trong không gian ở "mọi góc độ", thay vì
+   chỉ xoay dẹt quanh 1 trục. */
+.icon-tumble {
+  display: inline-block;
+  animation-name: tumble;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tumble {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
