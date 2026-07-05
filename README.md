@@ -1,4 +1,4 @@
-# Là Đình Huy — Portfolio Landing Page
+#  Đình Huy — Portfolio Landing Page
 
 A single-page portfolio site built with React and Vite. Sections: Sidebar (collapsible nav), Hero, About Me, Experience, Skills, Projects, Interests, and an End section.
 
